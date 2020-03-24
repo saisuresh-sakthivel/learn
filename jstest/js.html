@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    textarea{
+        width:200px;
+        height:200px;
+    }
+	button{
+	    width: 100px;
+        height: 38px;
+	}
+</style>
+<script>
+    var log;
+    function init(){
+        
+        log = document.getElementById("console");
+        console.log = function(params){
+            log.value += params;
+        }
+    }
+    function execjs(){
+        var el = document.getElementById("sn");
+        log.value="";
+        var scrTag = document.createElement('script');
+        scrTag.id = "execjs"+new Date().toDateString();
+        scrTag.text = "try{"+el.value+"}catch(err){console.log(err)}"
+        document.body.appendChild(scrTag);
+    }
+</script>
+</head>
+<body onload="init()">
+    <textarea id="sn"></textarea>    
+    <button onclick="execjs()">run</button>
+    <div>
+       <textarea id="console"></textarea>
+    </div>
+</body>
+</html>

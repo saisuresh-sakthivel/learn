@@ -1,0 +1,43 @@
+<html>
+ <head>
+   <script>
+   //LIT-7704-TUTC
+     const sym = [{'name':'red','symbol':'HE'},{'name':'green','symbol':'H'},{'name':'Ole','symbol':'O'}]
+     function matchPattern(str){
+	    let symArr = sym.map((i)=>i.symbol);
+		let outputStr = "";
+		let candidateStr = "";
+		let prevCandidateStr = "";
+		let strArr = str.split("");
+		for(let i = 0;i<strArr.length;i++){
+		  candidateStr+=(strArr[i]);
+		  if((symArr.filter((i)=>(i==candidateStr.toUpperCase())).length>0)){
+		      pushOutput(prevCandidateStr);
+		  } else if(symArr.filter((item)=>(item==(strArr[i].toUpperCase()))).length>0){		     
+              candidateStr+=strArr[i];
+		  } else {
+		     pushOutput(strArr[i]);
+			 candidateStr = "";
+		  }
+		  prevCandidateStr = candidateStr;
+		}
+		if(prevCandidateStr!="") pushOutput(prevCandidateStr);
+	 }
+     function submit(){
+	   let str = document.getElementById("inputs");
+	   matchPattern(str.value);
+	 }
+	 let outPutString = "";
+	 function pushOutput(str,pos){
+	     console.log("str "+str+" pos "+pos);
+	     outPutString+=(pos)?'<mark>'+str+'</mark>':str;
+	 }
+   </script>
+ </head>
+ <body>
+   <div>
+     <input id="inputs" type="text"/>
+	 <input type="button" onClick="submit()" value="submit"/>
+   </div>
+ </body>
+</html>

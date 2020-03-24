@@ -1,0 +1,17 @@
+<!DOCTYPE>
+<html>
+<head>
+<script>
+  function startAlgorithms(){
+     var arr =  document.getElementById("arrayInput").value;
+     arr = arr.toArray();
+  }
+   
+</script>
+</head>
+<body>
+   <input id="arrayInput"/>
+   <input id="output"/>
+   <input type="button" onclick="startAlgorithms()"/>
+</body>
+</html>

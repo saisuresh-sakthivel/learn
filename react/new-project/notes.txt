@@ -1,0 +1,14 @@
+
+1.React.memo for state less components.
+2.pureComponent to avoid shouldComponentUpdate as it will do comparison between current and prev props to decide on update.
+3. wrapping around the component with function.
+4. this.setState((prevState,props) => {
+  return
+ }
+);
+Mod-7 proptypes.
+5.npm install --save prop-types
+Person.propTypes = {
+}
+6. using refs. React.createRef() || ref=(()=>{}) || use useRef hooks.
+7. use context API. useContext, React.createContext(), Wrap the component with the Context.

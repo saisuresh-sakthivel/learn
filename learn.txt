@@ -1,0 +1,54 @@
+
+function toAscii(str){
+  var strArr = str.split("");
+  var ascciArr = "";
+  for(var i = 0;i<str.length;i++){
+     ascciArr+=(i==0)?str.charCodeAt(i)+"":","+str.charCodeAt(i);
+  }
+  console.log(ascciArr);
+}
+toAscii(<typeStr>);
+
+String.fromCharCode(115,97,112,100,97,32,112,111,108,97,109,97);
+String.fromCharCode(116,101,97,32,115,97,112,100,97,32,112,111,108,97,109,97);
+
+
+str = "zmndmtnokmrm";str = str.replace(/t/ig, " ").replace(/m/ig,"a").replace(/z/ig,'s').replace(/n/ig,'p').replace(/k/ig,'l').replace(/r/ig,'m');
+
+errorCode
+dtcAvailableProducts[]
+leadId
+propertyTypeId
+
+productCoverageId
+tradeId
+tradeName
+htmlFileLocation
+
+productCoverageId
+tradeId
+tradeName
+htmlFileLocation
+
+(RetrieveProductConveragesService)
+
+(RetrieveProductConveragesService)\
+
+ sCreateContracttServicesdf
+ 
+ dfdfgCreditCardPaymentServicedfg
+ 
+ errorCode
+isPaymentScheduled
+
+
+
+
+
+
+
+
+
+
+
+

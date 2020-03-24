@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+ function load(){
+    document.getElementById("showTime").innerHTML = new Date().getTime();
+	
+	var anchorlink = document.getElementById("anchorlink");
+    anchorlink.onclick = function(){
+	    console.log("clicked first");
+	}
+	
+	var anchorlink = document.getElementById("anchorlink");
+	var x = anchorlink.onclick;
+	anchorlink.onclick = function(){
+	    x();
+	    console.log("clicked second");
+	}
+	
+	anchorlink.addEventListener("click",function(){
+	   console.log("clicked third")
+	});
+ }
+</script>
+
+</head>
+<body onload="load()">
+<a id="anchorlink" href="javascript:;">ChatNow</a>
+<div id="showTime"></div>
+</body>
+</html>

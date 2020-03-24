@@ -1,0 +1,12 @@
+function add(param){
+   let x = 0;   
+   function addHelper(param){     
+	 if(param == "#"){
+	   return x;
+	 } else {
+	   x+=param;
+	   return addHelper;
+	 }
+   }
+   return addHelper(param)
+}

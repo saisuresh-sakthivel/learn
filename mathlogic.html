@@ -1,0 +1,111 @@
+<!DOCTYPE>
+<html>
+<head>
+    <style>
+        body{
+            margin:0px;
+        }
+        
+       .header{
+           width: 100%;
+           height: 35px;
+           background: #3a3a3a;
+           color: #fff;
+           padding: 10 0px 0px 13px;
+           margin-bottom: 10px;
+       }
+        
+       .container{
+           margin:20px;
+       }
+        
+        textarea{
+           width:100%;
+           heigh:30px;
+       }
+       div span{
+           display:inline-block;
+           width:40px;
+       }
+    </style>
+<script>
+    var Project = {};
+    Project.utils = (function(){
+        function isUndefinedOrNull(param){
+            if(typeof param == undefined || param == null || param == ""){
+                return true;
+            }
+            return false;
+        }
+        function el(id){
+            return document.getElementById(id);
+        }
+        return{
+            isUndefinedOrNull : isUndefinedOrNull,
+            el:el
+        }
+    })();
+    
+    Project.mathLogic = (function(){
+    var utils = Project.utils;
+    var el = utils.el;
+    var fibArray = [];
+    var x,y;   
+    var limit;
+    var limitField = document.getElementById("limit");
+    function fibonacciseries(){
+        x = 0;y = 1;
+        fibArray = [];
+        limit = el("inputstr").value;
+        if(isNaN(limit)) {alert("please enter the number"); return;} else { parseInt(limit);}
+        fibArray.push(x,y);
+        generateFibSeries();
+       
+    }
+    function generateFibSeries(){            
+        fibArray.push(x+y);
+        y = x + y;
+        x = y - x;
+        if(fibArray.length <= limit){
+           generateFibSeries();
+            
+        } else {
+            el("outputarea").value = fibArray;
+        }
+    }
+    
+    function isPalindrome(){
+        var str = el("inputstr").value;
+        var reversestr=""; 
+        for(i in str){reversestr+=str[str.length-i-1]}
+        if(reversestr == str) {el("outputarea").value = "Yes it is a palindrome !!!! "} else {
+        el("outputarea").value = "No :) It is not a palindrome"}
+     }
+     function clear(){
+         el("outputarea").value = "";
+     }
+     return{
+         fibonacciseries:fibonacciseries,
+         isPalindrome:isPalindrome,
+         clear:clear
+     }
+    })()
+</script>
+</head>
+<body>
+    <header class ="header">
+     <span>Math Logic +-*% </span>
+    </header>
+    <div class="container">
+    <input id="inputstr" value = 10 />
+
+        
+       <input type = "button" onclick = Project.mathLogic.fibonacciseries() value = "fibonacci"/>
+    
+        
+      <input type = "button" onclick = Project.mathLogic.isPalindrome() value = "isPalindrome"/>
+      <input type = "button" onclick = Project.mathLogic.clear() value = "clear"/>
+<textarea id="outputarea"></textarea>
+    </div>
+</body>
+</html>

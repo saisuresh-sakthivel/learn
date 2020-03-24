@@ -1,0 +1,32 @@
+<html>
+<style>
+.progressbar{
+  width:500px;
+  height:256px;
+  animation: gradient 15s ease infinite;
+}
+</style>
+<body>
+ <div id="bar" class="progressbar">
+ </div>
+ <script>
+   let time = 0;
+   let maxtime = 5000;
+   let div = document.getElementById("bar");
+   let blue = 1;
+   let yellow = 99;
+   function progress(){   
+     blue = time/maxtime*100;
+	 yellow = (blue-100);
+	 console.log(blue+"blue"+yellow+"yellow"+"time"+time);
+	 div.style.background = "linear-gradient(to right, blue "+blue+"%, yellow "+yellow+"%)";
+	 if(time>=maxtime) return;
+	 time+=10;
+	 setTimeout(progress,1);
+   }
+   progress();
+ </script>
+ 
+</div>
+</body>
+</html>

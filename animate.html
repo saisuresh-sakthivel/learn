@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background-color:"#cccccc"
+            }
+
+        </style>
+        <script>
+          var expand = function(elem,times){
+             var height_value = 440;
+             var currHeight = parseInt(elem.style.height);
+             var animatedHeight = 0;
+             var animate = function(){
+                 if(animatedHeight >= height_value) return;
+                 animatedHeight += currHeight+1;
+                 elem.style.height = animatedHeight+"px";
+                 setTimeout(function(){animate();},40);
+             }
+             animate();
+             /*var height_value = 440;
+             var currHeight = parseInt(elem.style.height);
+             if(times){
+         var duration = times;
+          var animatedHeight = 0;
+         while(animatedHeight < height_value){
+             animatedHeight += (parseInt(elem.style.height) + 1)
+             setTimeout(function(){                
+            elem.style.height = animatedHeight+"px";
+        
+             },40);
+             duration --;*/
+
+    }
+          function startexpand(){
+              var elem = document.getElementById("dummyelem");
+              expand(elem,10);
+          }
+        </script>
+    </head>
+    <body>
+        <button onclick="startexpand()">Animate</button>
+        <div id="dummyelem" style="position:fixed;width:320px;height:100px;top:100px;left:270px;background-color:#FF0000">
+            
+        </div>
+    </body>
+</html>

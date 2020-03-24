@@ -1,0 +1,44 @@
+<!DOCTYPE>
+<html>
+<head>
+  <script type="text/javascript">
+    const debounce = (func, delay) => {
+	  console.log("debounce called");
+	  let inDebounce
+	  return function() {
+		const context = this
+		const args = arguments
+		clearTimeout(inDebounce)
+		inDebounce = setTimeout(() => func.apply(context, args), delay)
+	  }
+	}
+	function onload(){
+	    console.log("onload");
+		debounceBtn.addEventListener('click', debounce(function() {
+		  console.info('Hey! It is', new Date().toUTCString());
+		}, 3000));
+		throttleBtn.addEventListener('click', throttle(function() {
+		  return console.log('Hey! It is', new Date().toUTCString());
+		}, 1000));
+	}
+	const throttle = (func, limit) => {
+	  console.log("throttle called");
+	  let inThrottle
+	  return function() {
+		const args = arguments
+		const context = this
+		if (!inThrottle) {
+		  func.apply(context, args)
+		  inThrottle = true
+		  setTimeout(() => inThrottle = false, limit)
+		}
+	  }
+	}
+	
+  </script>
+</head>
+<body onload="onload()">
+  <button id="throttleBtn">THROTTLE</button>
+  <button id="debounceBtn">DEBOUNCE</button>
+</body>
+</html>

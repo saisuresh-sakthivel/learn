@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#test{
+   cursor:pointer;
+}
+</style>
+</head>
+<body>
+<div id="test"> Click me </div>
+</body>
+</html>

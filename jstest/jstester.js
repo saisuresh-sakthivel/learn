@@ -1,0 +1,4 @@
+window.$ = {};
+$ = function(arguments){
+  
+}

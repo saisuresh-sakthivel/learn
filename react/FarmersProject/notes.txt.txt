@@ -1,0 +1,2 @@
+use asynccomponent. Refer below video.
+https://learning.oreilly.com/videos/react-the/9781789132229/9781789132229-video11_26

@@ -1,0 +1,64 @@
+<!DOCTYPE>
+<html>
+<head>
+<script>
+function insertSteps(params){
+    var body = document.body;
+    var div = document.createElement("div");
+    div.textContent = params;
+    body.appendChild(div);
+    
+}
+  /*
+   * Bubble Sort
+   *
+   */
+  var arr = [];
+  function startAlgorithms(){
+     var swapped = false;
+     var arr =  document.getElementById("arrayInput").value;
+     arr = arr.split(",");
+     for(var i = 0;i < arr.length;i++){
+         if(arr[i+1] < arr[i]){
+             temp = arr[i+1];
+             arr[i+1] = arr[i];
+             arr[i] = temp;
+             swapped = true;
+         }
+         insertSteps(arr.toString())
+     }
+     insertSteps("---------------------------------")
+     document.getElementById("arrayInput").value = arr.toString();
+     if(swapped){
+         startAlgorithms();
+     }
+  }
+    
+    /*
+     * Selection Sort
+     *
+     */
+     var selectionSort = function(){
+         var arr =  document.getElementById("arrayInput").value;
+         function getLargestItem(params){
+             var x = (params)?parseInt(params):0;
+             greatestFound = false;
+             for(var i = 0;i<arr.length-1;i++){
+                 if(arr[x]<arr[i+1]){
+                     x = i+1;
+                     greatestFound = true;
+                     break;
+                 }
+                 
+             }
+         }
+     }
+   
+</script>
+</head>
+<body>
+   <input id="arrayInput"/>
+   <input id="output"/>
+   <input type="button" onclick="startAlgorithms()"/>
+</body>
+</html>

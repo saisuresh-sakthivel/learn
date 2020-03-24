@@ -1,0 +1,139 @@
+<!DOCTYPE>
+<html>
+ <head>
+  <title> New Document </title>
+  <meta name="Generator" content="NPP-Plugin">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <style>
+      .stHolder{
+        margin-top: 2px;
+      }
+  </style>
+     <script src="http://code.jquery.com/jquery-1.9.0.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.3/handlebars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+  <script src="backbone.js"></script>
+  <script type="text/template" id="mytemplate">
+     <span id = "spanid"> </span>
+     <div> Template content </div>
+  </script>
+  <script id="myHBtemplate" type="text/x-handlebars-template">
+     <div class="stHolder">       
+       <div class="name">{{name}}</div>
+       <span class="barcode"> {{barcode}}</span>
+      </div>
+      </div>
+  </script>
+  <script type="text/javascript">
+  function onReady(){
+    /*
+    * Model
+    */
+    var x = Backbone.Model.extend({
+        defaults:{
+           "name":"default_name",
+           "barcode":69
+        },
+        initialize:function(){
+            console.log("initialize backbone js");
+            this.on("change:name",this.myChangeListener);
+        },
+        myChangeListener:function(){
+           console.log("The name got changed. The new name is "+this.get("name"));
+        }
+        
+    });
+    var obj_x = new x();
+    /*
+    * Views
+    */
+      var view1 = Backbone.View.extend({
+        defaults:{
+            name:"view"
+        },initialize:function(){
+            this.render();
+        },render:function(){
+            var template = _.template($("#mytemplate").html(),{});
+            this.$el.html(template);
+        }
+    });
+    var obj_view1 = new view1({el:$("#unique")});
+    
+     /*
+    * view added for collections
+    */
+    var coll_view = Backbone.View.extend({
+        defaults:{
+        },initialize:function(){
+        },render:function(model){
+            var html = $("#myHBtemplate").html();
+            var template = Handlebars.compile(html);
+            this.$el.html(template(model.toJSON()));
+        }
+    });
+    var coll_view_obj = new coll_view({el:$("#unique")});
+    /*
+    * Collections
+    */
+     var coll = Backbone.Collection.extend({
+         model:x,
+         initialize:function(){
+             this.bindEvents();
+             //this.on("add",this.render(this))
+         },
+         render:function(model){
+            console.log("hgfhgfdhgf :"+JSON.stringify(model.toJSON()));
+         },
+         bindEvents:function(){
+            this.on("add",function(model){
+                /*var html = $("#myHBtemplate").html();
+                var template = Handlebars.compile(html);
+                $("#unique").html(template(model.toJSON()));
+                console.log(model.toJSON());*/
+                coll_view_obj.render(model);
+            });
+         }
+         
+     });
+      
+  
+      
+     var johny = new x({"name":"sudha","barcode":90});
+     var vicky = new x({"name":"sidhu","barcode":100});
+      
+     var coll_obj = new coll(johny);
+    coll_obj.add(vicky);
+    /*
+    * console
+    */
+    $("#output").html((function(){
+     var comment = "Model Method</br>GET</br>"+
+         obj_x.get('name')+"</br>"+
+         "SET"+
+         obj_x.set({'name':'modified'})+
+         "</br>"+
+         obj_x.get("name")+
+         "</br>"+
+         JSON.stringify(coll_obj.toJSON());
+         
+     return comment;
+    })());
+  }
+     </script>
+ </head>
+ <body onload="onReady()">
+  <script type="text/javascript">
+    
+  </script>
+     <div id="unique">ffffff</div>
+     <div id="sample"></div>
+     <div id="output"></div>
+     <div>
+         <div><span>name : </span><input id = "name"/></div>
+         <div><span>barode :</span><input id = "barode"/></div>
+         <input class = "button" type="button">submit</input>
+     </div>
+ </body>
+</html>

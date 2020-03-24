@@ -1,0 +1,17 @@
+<html>
+<body>
+<script type="text/javascript">
+ function validate(evt) {
+   var theEvent = evt || window.event;
+   var key = theEvent.charCode || theEvent.which;
+
+   if(key >= 32 && (theEvent.ctrlKey === undefined || !theEvent.ctrlKey)) {
+    if(theEvent.preventDefault) theEvent.preventDefault();
+    else theEvent.returnValue = false;
+  }
+ }
+ </script>
+  <span>Textbox name</span> <br />
+ <input type="text" onkeypress='validate(event)' value=""/>
+</body>
+</html>

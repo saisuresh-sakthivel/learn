@@ -1,0 +1,51 @@
+<!DOCTYPE>
+<html>
+<head>
+   <title> ..... jstester ......</title>
+    <script type="text/javascript" src = './jstest/jshelper.js'></script>
+    <style>
+        .textBox{
+            float:left;
+            width:47%;
+            margin-left:2px;
+            height:200px;
+            border:1px solid grey;
+        }
+        textarea{
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<script>
+    function outputfunc(params){
+        document.getElementById("outputtext").value = params
+    }
+    console.log = outputfunc;
+    
+    function start(){
+        
+        var executeButton = document.getElementById("run")
+        executeButton.onclick = function(){
+            try{
+          var script = document.createElement('script');
+          script.type = "text/javascript";
+          script.text = document.getElementById('script').value;
+        document.body.appendChild(script);
+                
+            }catch(err){console.log(err);}
+        }
+      }
+   
+  
+</script>
+<body onload="start()">
+   <div><button id="run"> RUN </button></div>
+  <div  class = "textBox">
+    <textarea id="script"></textarea>
+  </div>
+  <div  class = "textBox">
+    <textarea id="outputtext"></textarea>
+  </div>
+</body>
+</html>

@@ -1,0 +1,101 @@
+var noofColumnsIndex = 5, noOfColumns = noofColumnsIndex+1, noOfRowsIndex = 5;
+for(var currRow = 0; currRow <= noOfRowsIndex-2; currRow++){
+	for(var columnindex = 0; columnindex <= noofColumnsIndex; columnindex++){ 
+	  console.log(" Selected Colum Index : : "+columnindex)
+	  for(var columnCurrIndex = columnindex;columnCurrIndex <= columnindex+2;columnCurrIndex++){
+			for(var i = 0;i<=2;i++){
+			   console.log(" ColumnCurrIndex : "+columnCurrIndex)
+			}
+	  }  
+	  if(columnCurrIndex == noOfColumns){
+		break;
+	  }
+	}
+	console.log("Current ROW : : : : : : "+currRow);
+}
+
+0 1 2   1 2 3   2 3 4   3 4 5
+  1       2       3       4
+0 1 2   1 2 3   2 3 4   3 4 5
+
+0 1 2   1 2 3   2 3 4   3 4 5
+  1       2       3       4
+0 1 2   1 2 3   2 3 4   3 4 5
+
+0 1 2   1 2 3   2 3 4   3 4 5
+  1       2       3       4
+0 1 2   1 2 3   2 3 4   3 4 5
+
+0 1 2   1 2 3   2 3 4   3 4 5
+  1       2       3       4
+0 1 2   1 2 3   2 3 4   3 4 5
+
+
+Selected Colum Index : : 0
+VM21874:6  Current : : 0 = 0 - 0
+VM21874:6  Current : : 1 = 1 1 1
+VM21874:6  Current : : 2 = 2 - 2
+VM21874:4  Selected Colum Index : : 1
+VM21874:6  Current : : 1 = 1 - 1
+VM21874:6  Current : : 2 = 2 2 2
+VM21874:6  Current : : 3 = 3 - 3
+VM21874:4  Selected Colum Index : : 2
+VM21874:6  Current : : 2
+VM21874:6  Current : : 3
+VM21874:6  Current : : 4
+VM21874:4  Selected Colum Index : : 3
+VM21874:6  Current : : 3
+VM21874:6  Current : : 4
+VM21874:6  Current : : 5
+VM21874:13 Current ROW : : : : : : 1
+VM21874:4  Selected Colum Index : : 0
+VM21874:6  Current : : 0
+VM21874:6  Current : : 1
+VM21874:6  Current : : 2
+VM21874:4  Selected Colum Index : : 1
+VM21874:6  Current : : 1
+VM21874:6  Current : : 2
+VM21874:6  Current : : 3
+VM21874:4  Selected Colum Index : : 2
+VM21874:6  Current : : 2
+VM21874:6  Current : : 3
+VM21874:6  Current : : 4
+VM21874:4  Selected Colum Index : : 3
+VM21874:6  Current : : 3
+VM21874:6  Current : : 4
+VM21874:6  Current : : 5
+VM21874:13 Current ROW : : : : : : 2
+VM21874:4  Selected Colum Index : : 0
+VM21874:6  Current : : 0
+VM21874:6  Current : : 1
+VM21874:6  Current : : 2
+VM21874:4  Selected Colum Index : : 1
+VM21874:6  Current : : 1
+VM21874:6  Current : : 2
+VM21874:6  Current : : 3
+VM21874:4  Selected Colum Index : : 2
+VM21874:6  Current : : 2
+VM21874:6  Current : : 3
+VM21874:6  Current : : 4
+VM21874:4  Selected Colum Index : : 3
+VM21874:6  Current : : 3
+VM21874:6  Current : : 4
+VM21874:6  Current : : 5
+VM21874:13 Current ROW : : : : : : 3
+VM21874:4  Selected Colum Index : : 0
+VM21874:6  Current : : 0
+VM21874:6  Current : : 1
+VM21874:6  Current : : 2
+VM21874:4  Selected Colum Index : : 1
+VM21874:6  Current : : 1
+VM21874:6  Current : : 2
+VM21874:6  Current : : 3
+VM21874:4  Selected Colum Index : : 2
+VM21874:6  Current : : 2
+VM21874:6  Current : : 3
+VM21874:6  Current : : 4
+VM21874:4  Selected Colum Index : : 3
+VM21874:6  Current : : 3
+VM21874:6  Current : : 4
+VM21874:6  Current : : 5
+VM21874:13 Current ROW : : : : : : 4

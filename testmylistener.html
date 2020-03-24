@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript">
+var count = 0
+  function handleclick(){
+      var divref = document.getElementById("test");
+      divref.innerHTML += ""+count++;
+  }
+    function boot(){
+   var divref = document.getElementById("test");
+   divref.addEventListener("click",handleclick,true,true,true,true);
+  
+    }
+</script>
+<style>
+#test{
+   cursor:pointer;
+}
+</style>
+</head>
+<body onload="boot()">
+<div id="test"> Click me </div>
+</body>
+</html>

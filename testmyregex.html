@@ -1,0 +1,98 @@
+<!DOCTYPE>
+<html>
+<head>
+<style>
+    body{
+        margin:10px;
+       // margin-top:10px
+    }
+    #holder{
+        margin: 0 auto;
+        width:100px;
+        
+    }
+    .userEntryHolder{
+       width:500px;
+    }
+    .txt,
+    .btn{
+        height: 30px;        
+    }
+    .txt{
+        width:auto;
+    }
+    .btn{
+       width:100px;
+    }
+    #holder{
+       margin-top:200px;
+    }
+</style>
+<script>
+    var fields = {};
+    function regFields(){
+        fields.matchBtn = document.getElementById("match");
+        fields.testBtn = document.getElementById("test");
+        fields.result = document.getElementById("result");
+        fields.replace = document.getElementById("replace");
+        fields.rp = document.getElementById("rp");
+        fields.rw = document.getElementById("replacewith");
+        fields.sr = document.getElementById("sr");
+    }
+    function ols(){
+       regFields()
+       attachBtnListeners()    
+    }
+    var Regex = function(){
+        function matchpattern(){
+           
+        }
+        function testpattern(){
+           fields.result.value = "";
+           var regExp = new RegExp(fields.rp.value);
+           fields.result.value = regExp.test(fields.tp.value); 
+        }
+        function replacestr(){
+            fields.result.value = "";
+            var str = fields.sr.value,rw = fields.rw.value;
+            fields.result.value = str.replace(fields.rp.value,fields.rw.value);
+        }
+        return{
+            matchpattern:matchpattern,
+            testpattern:testpattern,
+            replacestr:replacestr
+        }
+    }();
+    function attachBtnListeners(){
+        fields.matchBtn.onclick = Regex.matchpattern;
+        fields.testBtn.onclick = Regex.testpattern;
+        fields.replace.onclick = Regex.replacestr;
+    }
+</script>
+</head>
+<body onload="ols()">
+    <div id="holder">
+        <div class="userEntryHolder">
+           <span> Regex Pattern </span>
+           <input type="regexp" class="txt" id="rp"/>
+        </div>       
+        <div class="userEntryHolder">
+            <span> String </span>
+            <input class="txt" value = "" id="sr"/>
+        </div>
+        <div class="userEntryHolder">
+            <span> Result </span>
+            <input class="txt" value = "" id="result"/>
+        </div>
+        <div class="userEntryHolder">
+            <span> Replacewith </span>
+            <input class="txt" value = "" id="replacewith"/>
+        </div>
+        <input type="button" class="btn" value = "Match" id="match"/>
+        <input type="button" class="btn" value = "Test" id="test"/>
+        <input type="button" class="btn" value = "Replace" id="replace"/>
+        
+    
+    </div>
+</body>
+</html>

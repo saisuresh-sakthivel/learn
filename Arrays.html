@@ -1,0 +1,50 @@
+<html>
+<script>
+ let arr = [ [ 1, 1, 1, 0, 0, 0 ],
+[ 0, 1, 0, 0, 0, 0 ],
+[ 1, 1, 1, 0, 0, 0 ],
+[ 0, 0, 2, 4, 4, 0 ],
+[ 0, 0, 0, 2, 0, 0 ],
+[ 0, 0, 1, 2, 4, 0 ] ]
+ let hourGlassArray = [];
+ let hourGlassLength = 3;
+ function output(val){
+     document.getElementById("output").innerHTML+="<div>"+val+"</div>";
+ }
+ function insertIntoArr(value){
+    if(hourGlassArray.length == 0) {
+        return hourGlassArray.push(value);
+    }
+    if(value<hourGlassArray[0]) return hourGlassArray.unshift(value);
+    if(value>hourGlassArray[hourGlassArray.length-1]) return hourGlassArray.push(value);
+    for(let i = 0;i<hourGlassArray.length;i++){
+       if(value>hourGlassArray[i] && value<hourGlassArray[i+1]){
+          hourGlassArray = [...hourGlassArray.slice(0,i+1),value,...hourGlassArray.slice(i+1,hourGlassArray.length)];
+          return;
+       }
+    }
+ }
+ function generateHourGlassSum(arr,x,y){
+    let hourglassSum = arr[x][y]+arr[x][y+1]+arr[x][y+2];
+    hourglassSum+=arr[x+1][y+1];
+    hourglassSum+=arr[x+2][y]+arr[x+2][y+1]+arr[x+2][y+2];
+    insertIntoArr(hourglassSum);
+    if(x==(arr.length-hourGlassLength) && y==(arr[x].length-hourGlassLength)) return hourGlassArray;
+    if(y==(arr[x].length-hourGlassLength)) {
+        x++;
+        y = 0;
+    } else {
+        y++;
+    }        
+    return generateHourGlassSum(arr,x,y); 
+ }
+ function getHourGlassArr(){
+    let arrs = generateHourGlassSum(arr,0,0);
+    output(arrs[arrs.length-1]);
+ }
+</script>
+<body>
+  <input type="submit" onclick="getHourGlassArr()"/>
+  <div id="output"></div>
+</body>
+</html>

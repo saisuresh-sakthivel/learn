@@ -1,0 +1,14 @@
+<!DOCTYPE>
+<html>
+<head>
+   <title> ..... jstester ......</title>
+</head>
+<script>
+  <div class = "textBox">
+    <textarea></textarea>
+  </div>
+  <div class = "textBox">
+    <textarea></textarea>
+  </div>
+</script>
+</html>

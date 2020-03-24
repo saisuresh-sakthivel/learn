@@ -1,0 +1,32 @@
+function fib(len,a=1,b=2,fibArr=[]){
+   if(isNaN(len)||len==0) return fibArr;
+   if(len == 1) return [a];
+   if(len == 2) return [a,b];
+   if(fibArr.length == 0) fibArr.push(a,b);
+   for(let i =2;i<=len;i++){
+   b = a+b;
+   fibArr.push(b);
+   a = b-1;
+   if(fibArr.length==len){
+    break;
+   }
+   }
+   return fibArr;   
+}
+console.log(fib(10));
+
+function fact(n){
+   if(n==1){
+     return n;
+   }
+   return n*fact(n-1);
+}
+
+[10,20,30].reduce((acc,val)=>{
+  if(acc){
+   return val%10;
+  }else{
+    return false;
+  }
+},true);
+
